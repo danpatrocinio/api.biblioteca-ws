@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @SequenceGenerator(name = "CLIENTE_SEQ", sequenceName = "CLIENTE_SEQ", allocationSize = 1)
 public class Clientes {
 
+	// https://github.com/danpatrocinio/api.biblioteca-ws	
 	@Id
 	@Column(name="id_cliente")
 	@GeneratedValue(generator = "CLIENTE_SEQ", strategy = GenerationType.SEQUENCE)

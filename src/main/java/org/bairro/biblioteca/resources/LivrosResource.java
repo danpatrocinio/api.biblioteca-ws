@@ -65,7 +65,7 @@ public class LivrosResource {
 	@Path("query")
 	public Response getByLikes(@QueryParam("titulo") String titulo, 
 			@QueryParam("descricao") String descricao) {
-		
+
 		try {
 		
 			if (titulo != null && !titulo.isEmpty()) {
@@ -74,7 +74,7 @@ public class LivrosResource {
 			if (descricao != null && !descricao.isEmpty()) {				
 				return Response.ok(service.getByDescricao(descricao)).build();
 			}
-			
+
 			throw new Exception("Nennum parâmetro foi informado para consulta!");
 
 		} catch (Exception e) {
