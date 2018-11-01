@@ -62,10 +62,26 @@ public class LivrosService {
 					  .getResultList();
 	}
 
-	public List<Livros> getByTitulo(String parteTitulo) throws Exception {
-		TypedQuery<Livros> query = manager.createQuery("select l from Livros l where upper(l.titulo) like :titulo", Livros.class);
-		query.setParameter("titulo","%" + parteTitulo.toUpperCase() + "%");
-		return query.getResultList();
+	public List<Livros> getByTituto(String titulo) throws Exception {
+		List<Livros> listaByTitulo = manager
+				.createQuery("select l from Livros l where UPPER(l.titulo) LIKE :titulo ", Livros.class)
+				.setParameter("titulo", "%" + titulo.toUpperCase() + "%")
+				.getResultList();
+		if (listaByTitulo == null || listaByTitulo.isEmpty()) {
+			throw new Exception("Nenhum livro encontrado com esse título!");
+		}
+		return listaByTitulo;
+	}
+	
+	public List<Livros> getByDescricao(String descricao) throws Exception {
+		List<Livros> listaByTitulo = manager
+				.createQuery("select l from Livros l where UPPER(l.descricao) LIKE :desc", Livros.class)
+				.setParameter("desc", "%" + descricao.toUpperCase() + "%")
+				.getResultList();
+		if (listaByTitulo == null || listaByTitulo.isEmpty()) {
+			throw new Exception("Nenhum livro encontrado com esse título!");
+		}
+		return listaByTitulo;
 	}
 
 }
