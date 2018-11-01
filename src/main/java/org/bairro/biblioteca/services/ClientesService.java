@@ -17,7 +17,7 @@ public class ClientesService {
 	public Clientes getById(Integer id) throws Exception {
 		Clientes entity = manager.find(Clientes.class, id);
 		if (entity == null) {
-			throw new Exception("Autor não encontrado!");
+			throw new Exception("Cliente não encontrado!");
 		}
 		return entity;
 	}
