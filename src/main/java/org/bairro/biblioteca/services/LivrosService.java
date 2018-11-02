@@ -3,10 +3,12 @@ package org.bairro.biblioteca.services;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.bairro.biblioteca.entidades.Emprestimos;
 import org.bairro.biblioteca.entidades.Livros;
 
 @Stateless
@@ -14,6 +16,9 @@ public class LivrosService {
 
 	@PersistenceContext(unitName = "primary")
 	private EntityManager manager;
+	
+	@Inject
+	private EmprestimosService emprestimoService;
 
 	public Livros getById(Integer id) throws Exception {
 		Livros entity = manager.find(Livros.class, id);
@@ -40,6 +45,10 @@ public class LivrosService {
 	}
 	
 	public void deletar(Integer id) throws Exception {
+		List<Emprestimos> listaDeEmprestimosDoLivro = emprestimoService.getByIdLivro(id);
+		if (listaDeEmprestimosDoLivro != null && !listaDeEmprestimosDoLivro.isEmpty()) {
+			throw new Exception("O livro não pode ser deletado pois está sendo usado!");
+		}
 		Livros entity = getById(id);
 		manager.remove(entity);
 	}

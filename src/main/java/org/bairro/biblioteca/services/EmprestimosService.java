@@ -23,7 +23,7 @@ public class EmprestimosService {
 	public Emprestimos getById(Integer id) throws Exception {
 		Emprestimos entity = manager.find(Emprestimos.class, id);
 		if (entity == null) {
-			throw new Exception("Empréstimo não encontrada!");
+			throw new Exception("Empréstimo não encontrado!");
 		}
 		return entity;
 	}
