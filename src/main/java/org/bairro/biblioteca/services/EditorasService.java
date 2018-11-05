@@ -26,7 +26,7 @@ public class EditorasService {
 		}
 		return entity;
 	}
-	
+
 	public List<Editoras> getAll() {
 		return manager.createQuery("select e from Editoras e", Editoras.class).getResultList();
 	}
