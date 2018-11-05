@@ -64,7 +64,7 @@ public class LivrosService {
 	 */
 	private void validar(Livros entity) throws Exception {
 		if (entity.getTitulo() == null || entity.getTitulo().isEmpty()) {
-			throw new Exception("O título deve ser informado!");
+			throw new Exception("O título do livro deve ser informado!");
 		}
 	}
 
