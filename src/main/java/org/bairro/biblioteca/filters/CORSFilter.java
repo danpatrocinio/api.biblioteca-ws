@@ -10,6 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebFilter(filterName = "CorsFilter", urlPatterns = { "*" })
 public class CORSFilter implements Filter {
 
+	/**
+	 * Classe filtro CORS para todas as requisições 
+	 * que permite que a API possa receber requisições de qualquer servidor (host) ou porta. 
+	 * CORS -> Cross-origin Resource Sharing
+	 */
+	
 	@Override
 	public void destroy() {
 	}

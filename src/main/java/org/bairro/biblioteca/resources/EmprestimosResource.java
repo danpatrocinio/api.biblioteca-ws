@@ -24,23 +24,22 @@ public class EmprestimosResource {
 
 	@Inject
 	EmprestimosService service;
-	
+
 	@GET
 	public Response getAll() {
 		return Response.ok(service.getAll()).build();
 	}
-	
+
 	@GET
 	@Path("{id}")
 	public Response getById(@PathParam("id") Integer id) {
 		try {
 			return Response.ok(service.getById(id)).build();
 		} catch (Exception e) {
-			return Response.ok(
-					new MensagemResposta(e.getMessage())).status(Status.BAD_REQUEST).build();
+			return Response.ok(new MensagemResposta(e.getMessage())).status(Status.BAD_REQUEST).build();
 		}
 	}
-	
+
 	@GET
 	@Path("cliente/{id}")
 	public Response getByIdCliente(@PathParam("id") Integer id) {
@@ -50,7 +49,7 @@ public class EmprestimosResource {
 			return Response.ok(new MensagemResposta(e.getMessage())).status(Status.BAD_REQUEST).build();
 		}
 	}
-	
+
 	@GET
 	@Path("livro/{id}")
 	public Response getByIdLivro(@PathParam("id") Integer id) {
@@ -60,27 +59,25 @@ public class EmprestimosResource {
 			return Response.ok(new MensagemResposta(e.getMessage())).status(Status.BAD_REQUEST).build();
 		}
 	}
-	
+
 	@POST
 	public Response save(Emprestimos entity) {
 		try {
 			return Response.ok(service.salvar(entity)).status(Status.CREATED).build();
 		} catch (Exception e) {
-			return Response.ok(
-					new MensagemResposta(e.getMessage())).status(Status.BAD_REQUEST).build();
+			return Response.ok(new MensagemResposta(e.getMessage())).status(Status.BAD_REQUEST).build();
 		}
 	}
-	
+
 	@PUT
 	public Response update(Emprestimos entity) {
 		try {
 			return Response.ok(service.atualizar(entity)).status(Status.OK).build();
 		} catch (Exception e) {
-			return Response.ok(
-					new MensagemResposta(e.getMessage())).status(Status.BAD_REQUEST).build();
+			return Response.ok(new MensagemResposta(e.getMessage())).status(Status.BAD_REQUEST).build();
 		}
 	}
-	
+
 	@DELETE
 	@Path("{id}")
 	public Response delete(@PathParam("id") Integer id) {
@@ -88,8 +85,7 @@ public class EmprestimosResource {
 			service.deletar(id);
 			return Response.ok().build();
 		} catch (Exception e) {
-			return Response.ok(
-					new MensagemResposta(e.getMessage())).status(Status.BAD_REQUEST).build();
+			return Response.ok(new MensagemResposta(e.getMessage())).status(Status.BAD_REQUEST).build();
 		}
-	}	
+	}
 }

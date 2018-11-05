@@ -1,6 +1,11 @@
 package org.bairro.biblioteca.utils;
 
 public class MensagemResposta {
+	
+	/**
+	 * Classe utilitária para retornar um objeto JSON padrão como resposta
+	 */
+	
 	private String mensagem;
 
 	public MensagemResposta() {

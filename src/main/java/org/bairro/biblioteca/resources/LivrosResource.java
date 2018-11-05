@@ -63,8 +63,7 @@ public class LivrosResource {
 
 	@GET
 	@Path("query")
-	public Response getByLikes(@QueryParam("titulo") String titulo, 
-			@QueryParam("descricao") String descricao) {
+	public Response getByLikes(@QueryParam("titulo") String titulo, @QueryParam("descricao") String descricao) {
 
 		try {
 		
@@ -75,11 +74,10 @@ public class LivrosResource {
 				return Response.ok(service.getByDescricao(descricao)).build();
 			}
 
-			throw new Exception("Nennum parâmetro foi informado para consulta!");
+			throw new Exception("Os parâmetros 'titulo' ou 'descricao' não foram informados para consulta!");
 
 		} catch (Exception e) {
-			return Response.ok(
-					new MensagemResposta(e.getMessage())).status(Status.BAD_REQUEST).build();
+			return Response.ok(new MensagemResposta(e.getMessage())).status(Status.BAD_REQUEST).build();
 		}
 	}
 
