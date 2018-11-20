@@ -47,6 +47,12 @@ public class ClientesService {
 		return manager.createQuery("select e from Clientes e", Clientes.class).getResultList();
 	}
 	
+	public List<Clientes> getAllByRestricoes(Integer ativo) {
+		return manager.createQuery("select e from Clientes e where e.ativo = :ativo", Clientes.class)
+				.setParameter("ativo", ativo)
+				.getResultList();
+	}
+	
 	public Clientes salvar(Clientes entity) throws Exception {
 		validar(entity);
 		manager.persist(entity);

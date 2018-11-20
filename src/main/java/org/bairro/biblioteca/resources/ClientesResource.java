@@ -32,6 +32,18 @@ public class ClientesResource {
 	}
 
 	@GET
+	@Path("ativos")
+	public Response getAllAtivos() {
+		return Response.ok(service.getAllByRestricoes(1)).build();
+	}
+
+	@GET
+	@Path("restritos")
+	public Response getAllRestritos() {
+		return Response.ok(service.getAllByRestricoes(0)).build();
+	}
+
+	@GET
 	@Path("query")
 	public Response getByLikes(@QueryParam("nome") String nome) {
 
