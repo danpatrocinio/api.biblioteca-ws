@@ -6,7 +6,7 @@
   <artifactId>apistart-swarm</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>apistart-swarm</name>
+  <name>api.biblioteca</name>
   <description>API Start para Wildfly Swarm</description>
   
   	<properties>
@@ -46,7 +46,7 @@
 	</dependencies>
 	
 	<build>
-		<finalName>apistart-swarm</finalName>
+		<finalName>api.biblioteca</finalName>
 		<plugins>
 			<plugin>
 				<groupId>io.thorntail</groupId>
@@ -62,5 +62,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
