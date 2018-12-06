@@ -1,3 +1,8 @@
 target/
 .metadata/
 .settings/
+.idea/
+.project
+.classpath
+api.biblioteca.iml
+src/main/main.iml
